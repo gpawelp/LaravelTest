@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,23 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/index', [ContactController::class, 'index']);
+Route::get('/testowa333', [ContactController::class, 'testowa333'])->name('testowa133');
+
+Route::get('/test1/{id}', function($id) {
+    echo "ID1: NOthiNG {$id}"; 
+})->name('testowa1');
+
+Route::get('/test2/{id}', function($id) {
+    echo "ID2: " . $id; 
+});
+
+Route::get('/test/{name}', function($name) {
+   echo "HELLLOO: {$name}"; 
+})->whereAlpha('name');
+
+Route::get('/contact', [ContactController::class, 'show'])->name('contact.show');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
