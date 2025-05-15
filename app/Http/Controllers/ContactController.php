@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -23,4 +24,15 @@ class ContactController extends Controller
         }
         dd("456");
     }
+    
+    public function show(Contact $contact)
+    {
+        dd($contact->name);
+    }
+    
+    public function show_ad()
+    {
+        echo "show_ad";
+    }
+    
 }
