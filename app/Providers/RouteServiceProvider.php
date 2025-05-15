@@ -43,6 +43,9 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/api.php'));
 
+            // Od teraz za każdym razem gdy jest id w parametrze URL to będzie tu sprawdzane!
+            Route::pattern('id', '[0-9]+');
+            
             Route::middleware('web')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));
