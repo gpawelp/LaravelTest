@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contact;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -35,4 +36,17 @@ class ContactController extends Controller
         echo "show_ad";
     }
     
+    
+    public function sendToken()
+    {
+        return view('contact.send_token');
+    }
+    
+    public function properRole($id)
+    {
+        $user = User::findOrFail($id);
+//        dump($user->role->name);
+        
+        return view('contact.verified_role', compact('user'));
+    }
 }

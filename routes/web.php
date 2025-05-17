@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ContactController;
 use App\Models\Contact;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +19,20 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/home', function() {
+    dd("HOME");
+})->name('home');
+
+Route::get('/test_role/{id}', [ContactController::class, 'properRole'])->middleware('verified_role:simple');
+
+Route::get('/witout_token', [ContactController::class, 'sendToken'])->name('contact.send_token');
+
+Route::middleware('verified_token')->post('/with_token', function() {
+    dd("TEST token: ". request()->get('token'));
+})->name('contact.with_token');
+
+
 
 Route::get('/con/{contact}', function(Contact $con) {
     dd($con->name);
