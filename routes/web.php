@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DeliverUrlController;
 use App\Models\Contact;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -19,6 +20,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/play_url', [DeliverUrlController::class, 'showUrl']);
+Route::get('/play_session_get', [DeliverUrlController::class, 'showSession'])->name('play_session_get');
+Route::get('/play_session_put', [DeliverUrlController::class, 'putSession']);
+Route::get('/play_session_flash', [DeliverUrlController::class, 'showFlash']);
 
 Route::get('/my_welcome', function() {
 //    dd(Route::current());
