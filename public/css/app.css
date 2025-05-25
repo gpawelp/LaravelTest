@@ -664,6 +664,39 @@ select {
 [type='file']:focus {
   outline: 1px auto -webkit-focus-ring-color;
 }
+.container {
+  width: 100%;
+}
+@media (min-width: 640px) {
+
+  .container {
+    max-width: 640px;
+  }
+}
+@media (min-width: 768px) {
+
+  .container {
+    max-width: 768px;
+  }
+}
+@media (min-width: 1024px) {
+
+  .container {
+    max-width: 1024px;
+  }
+}
+@media (min-width: 1280px) {
+
+  .container {
+    max-width: 1280px;
+  }
+}
+@media (min-width: 1536px) {
+
+  .container {
+    max-width: 1536px;
+  }
+}
 .fixed {
   position: fixed;
 }
@@ -1203,8 +1236,24 @@ select {
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
 
+
+body {
+    font-family: 'Nunito', sans-serif;
+}
+
 .test {
     background-color: #333;
+}
+
+.alert-danger {
+    background-color: #d62728;
+    color: #ffffff;
+    border: 1px #67cdcc solid;
+    border-radius: 5px;
+    width: 40%;
+    padding: 10px;
+    margin: 20px auto;
+    font-size: 20px;
 }
 
 .hover\:border-gray-300:hover {

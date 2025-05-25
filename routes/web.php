@@ -20,6 +20,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/my_welcome', function() {
+//    dd(Route::current());
+    return view('my_welcome', ["message" => "THIS IS TEST MESSAGE!"]);
+});
+
+Route::get('/test_responses/{user}', function(User $user) {
+    return $user;
+});
+
+Route::get('/child', function() {
+    return view('child');
+});
+
 Route::get('/home', function() {
     dd("HOME");
 })->name('home');
